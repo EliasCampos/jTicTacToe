@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+  @media screen and (max-width:600px) {
+    font-size: 12px;
+  }
+}
+
+%fullScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  @extend %fullScreen;
+}
+body {
+  @extend %fullScreen;
+}
+
+$contentMaxWidth: 1100px;
+
+main {
+  max-width: $contentMaxWidth;
+  height: 100%;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 2rem 1rem;
+
+  h1 {
+    padding-bottom: 1em;
+  }
+}
+
+$areaMaxHeight: 600px;
+$areaMinHeight: 300px;
+$areaSizeRatio: 1.5;
+
+.game-area {
+  width: 72vw;
+  height: 60vw;
+  max-width: $areaMaxHeight * $areaSizeRatio;
+  max-height: $areaMaxHeight;
+  min-width: $areaMinHeight * $areaSizeRatio;
+  min-height: $areaMinHeight;
+  background-color: lightgrey;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 0.4em 0.6em;
+  }
+
+  h3 {
+    font-size: 2em;
+    padding-bottom: 0.5em;
+
+    b {
+      font-style: none;
+      font-weight: bold;
+      color: green;
+    }
+  }
+
+  table {
+    width: 40%;
+    height: 50%;
+    min-width: 12rem;
+    min-height: 15rem;
+    background-color: white;
+    border-collapse: collapse;
+    tr {
+      width: 100%;
+      height: 33%;
+    }
+    td {
+      box-sizing: border-box;
+      border: 0.2rem solid grey;
+      width: 33%;
+      heigth: 33%;
+      font-family: monospace;
+      font-size: 4rem;
+    }
+  }
+}
+
+$cellAnimationTime: 0.3s;
+.active-cell {
+  cursor: pointer;
+  transition: $cellAnimationTime;
+  background-color: white;
+
+  &:hover {
+    transition: $cellAnimationTime;
+    background-color: lightblue;
+  }
+}
+.cell-winner {
+  background-color: lightgreen;
+}
